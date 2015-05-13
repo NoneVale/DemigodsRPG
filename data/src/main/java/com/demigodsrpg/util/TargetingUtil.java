@@ -137,19 +137,29 @@ public class TargetingUtil {
         double X = target.getX();
         double Z = target.getZ();
         double Y = target.getY();
-
-        if (sampleSpace == 0) {
-            X += randomInt;
-            Z += randomInt;
-        } else if (sampleSpace == 1) {
-            X -= randomInt;
-            Z -= randomInt;
-        } else if (sampleSpace == 2) {
-            X -= randomInt;
-            Z += randomInt;
-        } else if (sampleSpace == 3) {
-            X += randomInt;
-            Z -= randomInt;
+        
+        switch(sampleSpace)
+        {
+            case 0:
+                X += randomInt;
+                Z += randomInt;
+                break;
+            case 1:
+                X -= randomInt;
+                Z -= randomInt;
+                break;
+            case 2:
+                X -= randomInt;
+                Z += randomInt;
+                break;
+            case 3:
+                X += randomInt;
+                Z -= randomInt;
+                break;
+            default:
+                X += randomInt;
+                Z += randomInt;
+                break;
         }
 
         return new Location(world, X, Y, Z);
